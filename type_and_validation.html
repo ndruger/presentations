@@ -112,7 +112,7 @@ user.<span class="hljs-property">fieldC</span> = <span class="hljs-string">&quot
 <h1>変換</h1>
 <ul>
 <li>バリデーション処理で文字列型を数値型に変換するなどをしたいことも多いが、Zodは型変換もサポートしている。</li>
-<li>リテラルの変換なら<a href="https://github.com/colinhacks/zod#coercion-for-primitives"><code>z.coercion</code></a>が利用でき、カスタムの変換がしたいならば<a href="https://github.com/colinhacks/zod#preprocess"><code>z.preprocess</code></a>を利用する。</li>
+<li>リテラルの変換なら<a href="https://github.com/colinhacks/zod#coercion-for-primitives"><code>z.coerce</code></a>が利用でき、カスタムの変換がしたいならば<a href="https://github.com/colinhacks/zod#preprocess"><code>z.preprocess</code></a>を利用する。</li>
 </ul>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-ts"><span class="hljs-keyword">import</span> { z } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;zod&quot;</span>;
 
