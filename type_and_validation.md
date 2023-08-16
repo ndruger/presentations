@@ -111,7 +111,7 @@ const user = UserSchema.parse({ fieldA: "a" });
 # 変換
 
 - バリデーション処理で文字列型を数値型に変換するなどをしたいことも多いが、Zodは型変換もサポートしている。
-- リテラルの変換なら[`z.coercion`](https://github.com/colinhacks/zod#coercion-for-primitives)が利用でき、カスタムの変換がしたいならば[`z.preprocess`](https://github.com/colinhacks/zod#preprocess)を利用する。
+- リテラルの変換なら[`z.coerce`](https://github.com/colinhacks/zod#coercion-for-primitives)が利用でき、カスタムの変換がしたいならば[`z.preprocess`](https://github.com/colinhacks/zod#preprocess)を利用する。
 
 ```ts
 import { z } from "zod";
