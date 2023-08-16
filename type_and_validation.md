@@ -155,12 +155,16 @@ https://github.com/colinhacks/zod#ecosystem
 defmodule User do
   use Croma.Struct, fields: [
     field_a: Croma.String,
-    field_b: Croma.Integer,
+    field_b: Croma.TypeGen.nilable(Croma.Integer),
   ]
 end
 
-user = User.new!(%{field_a: "a", field_b: 10})
-IO.inspect(user.field_c) # `field_c`は存在しないので、dialyzerの実行時にエラーになる
+case User.new(%{field_a: "a", field_b: 10}) do
+  {:ok, user} ->
+    IO.inspect(user.field_c) # `field_c`は存在しないので、dialyzerの実行時にエラーになる
+  {:error, e} ->
+    IO.puts("validation error: #{inspect(e)}")
+end
 ```
 
 ---
@@ -170,7 +174,7 @@ IO.inspect(user.field_c) # `field_c`は存在しないので、dialyzerの実行
 - ZodやCromaとは異なり、バリデーションのコードから型を作るのではなく、型ヒントを実行時のバリデーションに利用する。
 ---
 
-# Pydanticのバリデーション
+# Pydanticによるバリデーション
 
 ```python
 from pydantic import BaseModel, ValidationError
@@ -212,9 +216,33 @@ print(User.__annotations__) # {'field_a': <class 'str'>, 'field_b': int | None}
 ```
 
 ---
+# Pydanticによる環境変数のバリデーション・変換
+
+- 環境変数でプログラムの挙動を変更できるようにしたときに、`os.getenv('use_great_option')`のように呼び出すと、文字列からどのようにboolを判定するのかをコードで記述する必要がある。
+- Pydanticの`BaseSettings`を利用すると、環境変数の値を型ヒントに応じて変換したり不正な値の場合にエラーを起こしてくれる。
+
+```python
+from pydantic import ValidationError
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    use_great_option: bool = False
+
+try:
+    settings = Settings()
+    print(settings.use_great_option)
+    # use_great_option="true" -> true
+except ValidationError as e:
+    # use_great_option="aaa" -> ValidationError
+    print(e)
+```
+
+---
 # Pydanticを利用したライブラリ
 
 https://github.com/Kludex/awesome-pydantic
+
+Pydanticは2系と1系が存在し、1系しかサポートしていないライブラリもあるので注意。
 
 - [FastAPI](https://fastapi.tiangolo.com/)
   - pydanticを使ってリクエストボディのクラス定義を行うことで、リクエストボディのバリデーションを非常に簡潔に記載することが出来る。
@@ -225,4 +253,4 @@ https://github.com/Kludex/awesome-pydantic
 
 - Zod / Croma / Pydanticのようなライブラリを利用すると、型情報と重複したバリデーションのコードを書く必要がない。
 - バリデーション完了後は型が付くので、型による安全性を保ちながら開発を進めることが出来る。
-- 型に対応したバリデーションをStruct / Classに定義して再利用可能なビルディングブロックとして組み合わせていくことで、明瞭なコードを書くことが出来る。
+- 型とバリデーションをまとめてStruct / Classに定義して再利用可能なビルディングブロックとして組み合わせていくことで、明瞭なコードを書くことが出来る。
