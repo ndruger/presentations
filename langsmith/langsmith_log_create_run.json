@@ -1,0 +1,76 @@
+[
+  "create_run",
+  {
+    "type": "create_run",
+    "name": "ChatOpenAI",
+    "inputs": {
+      "messages": [
+        [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": ["langchain", "schema", "messages", "HumanMessage"],
+            "kwargs": {
+              "content": "Hello, world!"
+            }
+          }
+        ]
+      ]
+    },
+    "run_type": "llm",
+    "execution_order": 1,
+    "kwargs": {
+      "id": "b2f1339c-95e2-4f37-9a55-d7db73a41e4d",
+      "start_time": "2023-09-06 14:26:31.521585",
+      "end_time": null,
+      "extra": {
+        "invocation_params": {
+          "model": "gpt-3.5-turbo",
+          "model_name": "gpt-3.5-turbo",
+          "request_timeout": null,
+          "max_tokens": null,
+          "stream": false,
+          "n": 1,
+          "temperature": 0.7,
+          "_type": "openai-chat",
+          "stop": null
+        },
+        "options": {
+          "stop": null
+        },
+        "runtime": {
+          "library_version": "0.0.281",
+          "library": "langchain",
+          "platform": "macOS-13.0-arm64-arm-64bit",
+          "runtime": "python",
+          "runtime_version": "3.11.2"
+        }
+      },
+      "error": null,
+      "serialized": {
+        "lc": 1,
+        "type": "constructor",
+        "id": ["langchain", "chat_models", "openai", "ChatOpenAI"],
+        "kwargs": {
+          "openai_api_key": {
+            "lc": 1,
+            "type": "secret",
+            "id": ["OPENAI_API_KEY"]
+          }
+        }
+      },
+      "events": [
+        {
+          "name": "start",
+          "time": "2023-09-06 14:26:31.521585"
+        }
+      ],
+      "outputs": null,
+      "reference_example_id": null,
+      "parent_run_id": null,
+      "tags": [],
+      "child_execution_order": 1,
+      "project_name": "simple_tool_agent"
+    }
+  }
+]

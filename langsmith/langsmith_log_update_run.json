@@ -1,0 +1,102 @@
+[
+  "update_run",
+  {
+    "run_id": "b2f1339c-95e2-4f37-9a55-d7db73a41e4d",
+    "end_time": "2023-09-06 14:26:33.178041",
+    "error": null,
+    "inputs": {
+      "messages": [
+        [
+          {
+            "lc": 1,
+            "type": "constructor",
+            "id": ["langchain", "schema", "messages", "HumanMessage"],
+            "kwargs": {
+              "content": "Hello, world!"
+            }
+          }
+        ]
+      ]
+    },
+    "outputs": {
+      "generations": [
+        [
+          {
+            "text": "Hello there! How can I assist you today?",
+            "generation_info": {
+              "finish_reason": "stop"
+            },
+            "message": {
+              "lc": 1,
+              "type": "constructor",
+              "id": ["langchain", "schema", "messages", "AIMessage"],
+              "kwargs": {
+                "content": "Hello there! How can I assist you today?",
+                "additional_kwargs": {}
+              }
+            }
+          }
+        ]
+      ],
+      "llm_output": {
+        "token_usage": {
+          "prompt_tokens": 11,
+          "completion_tokens": 10,
+          "total_tokens": 21
+        },
+        "model_name": "gpt-3.5-turbo"
+      },
+      "run": null
+    },
+    "events": [
+      {
+        "name": "start",
+        "time": "2023-09-06 14:26:31.521585"
+      },
+      {
+        "name": "end",
+        "time": "2023-09-06 14:26:33.178041"
+      }
+    ],
+    "kwargs": {
+      "id": "b2f1339c-95e2-4f37-9a55-d7db73a41e4d",
+      "name": "ChatOpenAI",
+      "start_time": "2023-09-06 14:26:31.521585",
+      "run_type": "llm",
+      "extra": {
+        "invocation_params": {
+          "model": "gpt-3.5-turbo",
+          "model_name": "gpt-3.5-turbo",
+          "request_timeout": null,
+          "max_tokens": null,
+          "stream": false,
+          "n": 1,
+          "temperature": 0.7,
+          "_type": "openai-chat",
+          "stop": null
+        },
+        "options": {
+          "stop": null
+        }
+      },
+      "serialized": {
+        "lc": 1,
+        "type": "constructor",
+        "id": ["langchain", "chat_models", "openai", "ChatOpenAI"],
+        "kwargs": {
+          "openai_api_key": {
+            "lc": 1,
+            "type": "secret",
+            "id": ["OPENAI_API_KEY"]
+          }
+        }
+      },
+      "reference_example_id": null,
+      "parent_run_id": null,
+      "tags": [],
+      "execution_order": 1,
+      "child_execution_order": 1,
+      "child_runs": []
+    }
+  }
+]
