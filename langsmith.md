@@ -58,11 +58,11 @@ ndruger
 
 ---
 
-![](/images/langsmith/call_graph.png)
+![](./images/langsmith/call_graph.png)
 
 ---
 
-![](/images/langsmith/graph.png)
+![](./images/langsmith/graph.png)
 
 ---
 
@@ -104,7 +104,7 @@ for run in runs:
 
 ---
 
-![](/images/langsmith/prompt.png)
+![](./images/langsmith/prompt.png)
 
 ---
 
