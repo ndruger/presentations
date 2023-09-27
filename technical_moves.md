@@ -32,7 +32,7 @@ ndruger
 # その後
 
 - インフラ、Webフロントエンド、バックエンド、MLを学んだ。
-- フレームワークやライブラリを学ぶたびに、メモをして分類して類似点を挙げながら比較して、自分の中の知識を整理した。
+- 新たに学ぶフレームワークやライブラリ毎に、ノートを取り、類似点を比較しながら知識を整理していった。
 
 ---
 
@@ -42,33 +42,38 @@ ndruger
 
 ---
 
-# 幅広い知識を関連付けて考える利点
+# 幅広い知識を関連付ける利点
 
-バックエンドの言語はPython、WebフレームワークはFastAPI、ORMはSQLModel。
+技術の関連性を理解する。
 
-- PythonはTypeScriptと同じように細かく型を付けると分かりやすくミスも減らせる。
-- FastAPIでモデル・サービス・コントローラーのレイヤーをどう扱うのかは、PhoenixやRailsと比較して差を考えながら、どれに寄せると綺麗に書けるか考えればいい。
-- SQLModelはSQLAlchemyに型が付いた感じで、型ベースのバリデーションの思想はCromaやZodと同じに考えればいい。
-  - 参考: [型情報と相性のいいバリデーションライブラリ - Zod, Croma, Pydantic](https://ndruger.github.io/presentations/type_and_validation.html)
+- バックエンドの言語: Python
+  - PythonはTypeScriptと同じように細かく型を付けると分かりやすくミスも減らせる。
+- Webフレームワーク: FastAPI
+  - FastAPIでモデル・サービス・コントローラーのレイヤーをどう扱うのかは、PhoenixやRailsと比較し、その差を理解しながら、どれに寄せると綺麗に書けるか考えればいい。
+- ORM: SQLModel
+  - SQLModelはSQLAlchemyに型が付いたと考えるとよく、型ベースのバリデーションの思想はCromaやZodと同様の考え方が適用できる。
+    - 参考: [型情報と相性のいいバリデーションライブラリ - Zod, Croma, Pydantic](https://ndruger.github.io/presentations/type_and_validation.html)
 
-共通点と差分を意識しながら設計すると楽に作れる。
+技術間の共通点や差分を意識して設計すると、よりスムーズに開発が進む。
 
 ---
 
-# 問題が起きたときも使える手数が多い
+# 問題解決の多様性
 
-問題: CircleCIでPRごとに自動テストを実行したいが、[CircleCIのcimg/postgresのイメージ](https://circleci.com/developer/images/image/cimg/postgres)を利用した方法だと、プロジェクトで必要なPostgreSQL拡張の[pgvector](https://github.com/pgvector/pgvector)が入っていない。
+問題: CircleCIでのPRごとの自動テスト実行時に、[cimg/postgresのイメージ](https://circleci.com/developer/images/image/cimg/postgres)が、プロジェクトで必要なPostgreSQL拡張[pgvector](https://github.com/pgvector/pgvector)をサポートしていない。
 
 対応案
-1. cimg/postgresのDockerイメージをベースにして、pgvectorを追加したDockerイメージをDocker Hubに登録し、CircleCIで利用する方法。
-1. pgvectorに対応したAuroraのDBをCircleCIから接続して利用する方法。
-1. 別のCIであるAWS CodeBuildを利用する方法。
-1. CircleCIのジョブの中でPostgreSQLとpgvectorをインストールして利用する方法。
-1. pgvectorを利用したテストをmarkで分けて、そのテストのみ2のようにAutoraで実行する方法。
+1. img/postgresのDockerイメージをベースに、pgvectorを追加したカスタムイメージをDocker Hubにアップロードし、CircleCIでそれを使用する。
+1. CircleCIからpgvectorに対応しているAurora DBへ接続し、それを使用する。
+1. 別のCIツールであるAWS CodeBuildを利用する。
+1. CircleCIのジョブ内でPostgreSQLとpgvectorをインストールし使用する。
+1. pgvectorを使用するテストを特定のマークで区別し、それらのテストだけを2の方法でAuroraで実行する。
 
 ---
 
-# このように幅広い知識は非常に便利です！
+# 問題発生時のアプローチ
+
+遭遇した問題に冷静に対応するため、可能な解決策を列挙し、最適な方法を選択しよう。
 
 ---
 
@@ -124,7 +129,7 @@ ndruger
 
 ---
 
-# 私が思いつくような方法のある程度はカバーしている。
+# 私が思いつく方法のある程度はカバーしている。
 
 ---
 
@@ -218,5 +223,5 @@ ndruger
 
 # まとめ
 
-- ChatGPTを設計や問題解決の相談に利用するとても便利。
-- ライブラリの差分や共通点を整理して理解することが非常に簡単になった。
+- ChatGPTは、設計や問題解決のためのアプローチを多角的に考える手助けとして非常に有用。
+- 技術の関連性を整理し、深く理解する作業がChatGPTを用いることで劇的に容易になる。
