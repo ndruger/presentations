@@ -76,11 +76,11 @@ ndruger
   * { text-align: center; font-size: 80px; }
 </style>
 
-# 完
+# ...
 
 ---
 
-# いや、それってChatGPTが代替してくれるのでは？(時に空気を読まずに意見・疑問を言う重要性)
+# 今日の本題: それってChatGPTが代替してくれるのでは？
 
 ---
 
