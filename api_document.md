@@ -29,6 +29,14 @@ Web APIを効率的に開発するためにしているプロジェクトでし�
 - CircleCIのジョブでチェックするようにしている。
 - デフォルトで[ibm-cloud-rules.md](https://github.com/IBM/openapi-validator/blob/main/docs/ibm-cloud-rules.md)のルールが設定されており、設定ファイルで上書きをして利用している。
 
+package.jsonの例
+```json
+  "scripts": {
+    "openapi:lint": "lint-openapi --warnings-limit 0 --ruleset .spectral.js doc/api/openapi.yaml"
+    ...
+  }
+```
+
 ---
 
 # 設定ファイルの例
