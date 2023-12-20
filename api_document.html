@@ -32,6 +32,12 @@
 <li>CircleCIのジョブでチェックするようにしている。</li>
 <li>デフォルトで<a href="https://github.com/IBM/openapi-validator/blob/main/docs/ibm-cloud-rules.md">ibm-cloud-rules.md</a>のルールが設定されており、設定ファイルで上書きをして利用している。</li>
 </ul>
+<p>package.jsonの例</p>
+<pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-json">  <span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;openapi:lint&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;lint-openapi --warnings-limit 0 --ruleset .spectral.js doc/api/openapi.yaml&quot;</span>
+    ...
+  <span class="hljs-punctuation">}</span>
+</code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5">
 <h1>設定ファイルの例</h1>
