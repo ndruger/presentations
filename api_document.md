@@ -105,7 +105,7 @@ module.exports = {
 
 生成するコードの例。APIと呼び出せるロールのマップを定義する。
 ```elixir
-defmodule AtPay.OpenApi do
+defmodule Gear.OpenApi do
   defmodule AdminApiRoleMap do
     @api_to_role_ids_map %{
       "consoleAdminUserIndex" => [:global, :local],
@@ -120,9 +120,9 @@ end
 コントローラーのコードがPlugを読み込みPlugの中で上記のコードを利用する。
 モジュール名からOpenAPIの`operationId`が生成できるように命名している。
 ```elixir
-defmodule AtPay.Controller.Console.AdminUser.Index do
+defmodule Gear.Controller.Console.AdminUser.Index do
   ...
-  plug AtPay.Plug.FetchAdminUser, :fetch, api_id: Application.module_to_api_id(__MODULE__)
+  plug Gear.Plug.FetchAdminUser, :fetch, api_id: Application.module_to_api_id(__MODULE__)
   ...
 end
 ```
