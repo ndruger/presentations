@@ -4,7 +4,7 @@ marp: true
 
 # 静的型付け関数型言語Gleam
 
-ndruger
+@ndruger
 
 ---
 
@@ -216,12 +216,16 @@ pub fn main() {
 # Result
 
 - Gleamはエラーハンドリングに例外を使わない。
-- RustやElmのようにResultが言語レベルで提供されているので、TypeScript/Elixir/PythonでResultを使う時のように標準でないライブラリを探す必要がない。
+- RustやElmのようにResultが言語レベルで提供されている
   - https://hexdocs.pm/gleam_stdlib/gleam/result.html
+- Elixir/TypeScript/PythonでResultを使うには下記のような標準でないライブラリを探して使う必要があり、Resultを返さないコードのラッピングなど手間も多い。
+  - 例) Elixir: [GitHub \- skirino/croma: Elixir macro utilities to make type\-based programming easier](https://github.com/skirino/croma)
+  - 例) TypeScript: [GitHub \- supermacro/neverthrow: Type\-Safe Errors for JS & TypeScript](https://github.com/supermacro/neverthrow)
+  - 例) Python: [GitHub \- rustedpy/result: A simple Rust like Result type for Python 3\. Fully type annotated\.](https://github.com/rustedpy/result)
 
 ---
 
-# パイプライン
+# パイプライン(1)
 
 - Elixirのパイプライン演算子`|>`のような機能がある。
 
@@ -246,6 +250,14 @@ pub fn main() {
   |> io.debug // cab
 }
 ```
+
+---
+
+# パイプライン(2)
+
+- パイプライン演算子を持つ言語は、Elixir / Elm / F# などがある。
+- JavaScriptのパイプライン演算子の提案もあり現在Stage 2。
+  - [GitHub \- tc39/proposal\-pipeline\-operator: A proposal for adding a useful pipe operator to JavaScript\.](https://github.com/tc39/proposal-pipeline-operator)
 
 ---
 
